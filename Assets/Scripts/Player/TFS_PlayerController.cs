@@ -15,6 +15,10 @@ public class TFS_PlayerController : MonoBehaviour
     private float jumpForce = 10f;
     [SerializeField]
     private int maxJumps = 1;
+    [SerializeField]
+    private LayerMask groundLayer;
+    [SerializeField]
+    private float groundCheckRadius = 0.2f;
     #endregion
 
     #region Components
@@ -23,31 +27,14 @@ public class TFS_PlayerController : MonoBehaviour
     private Collider2D col;
     private SpriteRenderer sr;
     private Animator anim;
+    //private GroundCheck check;
+    private GroundCheck1 check;
     #endregion
 
-    #region Ground Check Stuff
-    // Ground check variables
-    [SerializeField]
-    private LayerMask groundLayer;
-    [SerializeField]
-    private float groundCheckRadius = 0.2f;
-
-    // Ground check position is calculated based on the collider's bounds
-    private Vector2 groundCheckPos => CalculateGroundCheckPos();
-    private bool isGrounded;
-    private bool isCrouching = false;
     private int jumpCount = 0;
-
-    // Foot position helper to calculate the ground check position based on the collider's bounds
-    private Vector2 CalculateGroundCheckPos()
-    {
-        Bounds bounds = col.bounds;
-        return new Vector2(bounds.center.x, bounds.min.y);
-    }
-    #endregion
+    private bool isCrouching = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -55,23 +42,22 @@ public class TFS_PlayerController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
+        // Initialize the GroundCheck1 instance with the required parameters
+        check = new GroundCheck1(col, rb, groundLayer, groundCheckRadius);
+
         rb.linearVelocity = Vector2.zero;
 
-        /*
-         * Stale code for creating a ground check transform, but it is not needed since we are calculating the ground check position based on the collider's bounds
-         * 
-        if(groundCheckTransform == null)
-        {
-            groundCheckTransform = new GameObject("GroundCheck").transform;
-            groundCheckTransform.SetParent(transform);
-            groundCheckTransform.localPosition()
-        }
-        */
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        bool isGroundedThisFrame = check.CheckGround();
+
+        float horizontalInput = Input.GetAxis("Horizontal");
+
+        float moveX = horizontalInput * speed;
 
         // Crouch input
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
@@ -82,16 +68,6 @@ public class TFS_PlayerController : MonoBehaviour
         {
             isCrouching = false;
         }
-
-
-        if (rb.linearVelocity.y < 0)
-        {
-            isGrounded = Physics2D.OverlapCircle(groundCheckPos, groundCheckRadius, groundLayer);
-        }
-
-        float horizontalInput = Input.GetAxis("Horizontal");
-
-        float moveX = horizontalInput * speed;
 
         if(isCrouching)
         {
@@ -107,13 +83,13 @@ public class TFS_PlayerController : MonoBehaviour
             if(jumpCount < maxJumps)
             {
                 jumpCount++;
-                isGrounded = false;
+                rb.linearVelocityY = 0f;
                 rb.AddForceY(jumpForce, ForceMode2D.Impulse);
                 Debug.Log($"Jumped! Jump count: {jumpCount}");
             }
         }
 
-        if (isGrounded)
+        if (isGroundedThisFrame && rb.linearVelocity.y <= 0)
         {
             jumpCount = 0;
         }
@@ -121,7 +97,7 @@ public class TFS_PlayerController : MonoBehaviour
         SpriteFlip(horizontalInput);
 
         // Update animator parameters
-        anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("isGrounded", isGroundedThisFrame);
         anim.SetBool("isCrouching", isCrouching);
         anim.SetFloat("horizontalInput", Mathf.Abs(horizontalInput));
 
@@ -134,20 +110,15 @@ public class TFS_PlayerController : MonoBehaviour
             anim.SetTrigger("attackTrigger");
         }
 
-
-
     }
 
-    // single line flipper
-    private void SpriteFlip(float horizontalInput) => sr.flipX = (horizontalInput < 0);
-    /*
-    if (sr.flipX && horizontalInput > 0)
+    // flip the sprite based on the horizontal input
+    private void SpriteFlip(float horizontalInput)
     {
-        sr.flipX = false;
+        if(sr.flipX && horizontalInput > 0 || !sr.flipX && horizontalInput < 0)
+        {
+            sr.flipX = !sr.flipX;
+        }
     }
-    else if (!sr.flipX && horizontalInput < 0 || sr.flipX && horizontalInput > 0)
-    {
-        sr.flipX = true;
-    }
-    */
+
 }
