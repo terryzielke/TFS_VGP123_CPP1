@@ -14,7 +14,7 @@ public class TFS_PlayerController : MonoBehaviour
     [SerializeField]
     private float jumpForce = 10f;
     [SerializeField]
-    private int maxJumps = 2;
+    private int maxJumps = 1;
     #endregion
 
     #region Components
