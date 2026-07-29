@@ -21,18 +21,16 @@ public class TFS_PlayerController : MonoBehaviour
     private float groundCheckRadius = 0.2f;
     #endregion
 
-    #region Components
+    #region Component References
     // private and public - public variables are visible in the inspector, private variables are not. Variables are private by default unless otherwise specified.
     private Rigidbody2D rb;
     private Collider2D col;
     private SpriteRenderer sr;
     private Animator anim;
-    //private GroundCheck check;
     private GroundCheck1 check;
     #endregion
 
     private int jumpCount = 0;
-    private bool isCrouching = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,32 +50,27 @@ public class TFS_PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        AnimatorClipInfo[] clipInfo = anim.GetCurrentAnimatorClipInfo(0);
         bool isGroundedThisFrame = check.CheckGround();
 
         float horizontalInput = Input.GetAxis("Horizontal");
+        bool isCrouching = false;
+        bool fireInput = Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.RightShift);
 
+        // movement along x axis
         float moveX = horizontalInput * speed;
+        rb.linearVelocityX = moveX;
 
+        /*
         // Crouch input
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
+            rb.linearVelocityX = 0f;
             isCrouching = true;
         }
-        else
-        {
-            isCrouching = false;
-        }
+        */
 
-        if(isCrouching)
-        {
-            rb.linearVelocityX = 0f;
-        }
-        else
-        {
-            rb.linearVelocityX = moveX;
-        }
-
+        // Jump input
         if (Input.GetButtonDown("Jump"))
         {
             if(jumpCount < maxJumps)
@@ -93,6 +86,13 @@ public class TFS_PlayerController : MonoBehaviour
         {
             jumpCount = 0;
         }
+
+        /*
+        if (clipInfo[0].clip.name == "Attack")
+        {
+            rb.linearVelocityX = 0;
+        }
+        */
 
         SpriteFlip(horizontalInput);
 
@@ -120,5 +120,11 @@ public class TFS_PlayerController : MonoBehaviour
             sr.flipX = !sr.flipX;
         }
     }
-
+    /*
+    // Pickup method to handle item pickups
+    public void Pickup(string pickupType)
+    {
+        Debug.Log($"Picked up a {pickupType}!");
+    }
+    */
 }
