@@ -6,7 +6,7 @@ using UnityEngine;
 // </summary>
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D), typeof(SpriteRenderer))]
 [RequireComponent(typeof(Animator))]
-public class TFS_PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     #region Tunalble Variables
     [SerializeField]
@@ -31,6 +31,56 @@ public class TFS_PlayerController : MonoBehaviour
     #endregion
 
     private int jumpCount = 0;
+    public int maxLives = 3;
+    private int currentLives;
+
+    // C++ style getter and setter for lives
+    /*
+    public void setLives(int value)
+    {
+        if(value >= maxLives)
+        {
+            currentLives = maxLives;
+        }
+        else if(value <= 0)
+        {
+            currentLives = 0;
+            // game over logic here
+        }
+        else
+        {
+            currentLives = value;
+        }
+    }
+
+    // Get lives function
+    public int getLives() { return currentLives; }
+    */
+
+    // C# style property for lives
+    private int _lives = 3;
+    public int Lives
+    {
+        get { return _lives; }
+        set
+        {
+            if (value >= maxLives)
+            {
+                _lives = maxLives;
+            }
+            else if (value <= 0)
+            {
+                _lives = 0;
+                Debug.Log("Game Over!");
+            }
+            else
+            {
+                _lives = value;
+            }
+
+            Debug.Log($"Lives set to: {_lives}");
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
