@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using System.Collections;
 
 // <summary>
 // Responsible for taking the imput and applying it ot the rigidbody component of the player object
@@ -9,17 +10,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     #region Tunalble Variables
-    [SerializeField]
-    private float speed = 5f;
-    [SerializeField]
-    private float jumpForce = 10f;
-    [SerializeField]
-    private int maxJumps = 1;
-    [SerializeField]
-    private LayerMask groundLayer;
-    [SerializeField]
-    private float groundCheckRadius = 0.2f;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float groundCheckRadius = 0.2f;
+    [SerializeField] private float speed = 5f;
+
+    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private float jumpForcePowerup = 20f;
+    [SerializeField] private float jumpForcePowerupDuration = 5f; 
+    [SerializeField] private int maxJumps = 1;
     #endregion
+
+    private float currentPowerupDuration = 0f;
+    private float initalJumpForce;
+
+    private Coroutine jumpForceCoroutine;
 
     #region Component References
     // private and public - public variables are visible in the inspector, private variables are not. Variables are private by default unless otherwise specified.
@@ -170,11 +174,31 @@ public class PlayerController : MonoBehaviour
             sr.flipX = !sr.flipX;
         }
     }
-    /*
-    // Pickup method to handle item pickups
-    public void Pickup(string pickupType)
+    
+    public void StartJumpForceChange()
     {
-        Debug.Log($"Picked up a {pickupType}!");
+        if (jumpForceCoroutine != null)
+        {
+            StopCoroutine(jumpForceCoroutine);
+            jumpForceCoroutine = null;
+            jumpForce = initalJumpForce;
+        }
+        jumpForceCoroutine = StartCoroutine(JumpForcePowerupCoroutine());
     }
-    */
+
+    IEnumerator JumpForcePowerupCoroutine()
+    {
+        initalJumpForce = jumpForce;
+        jumpForce = jumpForcePowerup;
+        currentPowerupDuration = jumpForcePowerupDuration;
+        while (currentPowerupDuration > 0)
+        {
+            currentPowerupDuration -= Time.deltaTime;
+            Debug.Log("Jump force power-up active. Time remaining: " + currentPowerupDuration.ToString("F2") + " seconds.");
+            yield return null;
+        }
+        jumpForce = initalJumpForce;
+        jumpForceCoroutine = null;
+        currentPowerupDuration = 0f;
+    }
 }
