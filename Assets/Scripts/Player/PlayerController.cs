@@ -115,14 +115,14 @@ public class PlayerController : MonoBehaviour
         float moveX = horizontalInput * speed;
         rb.linearVelocityX = moveX;
 
-        /*
+        
         // Crouch input
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             rb.linearVelocityX = 0f;
             isCrouching = true;
         }
-        */
+        
 
         // Jump input
         if (Input.GetButtonDown("Jump"))
@@ -200,5 +200,18 @@ public class PlayerController : MonoBehaviour
         jumpForce = initalJumpForce;
         jumpForceCoroutine = null;
         currentPowerupDuration = 0f;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if( (collision.CompareTag("Squish") && rb.linearVelocityY < 0))
+        {
+            BaseEnemy enemy = collision.GetComponentInParent<BaseEnemy>();
+            if (enemy != null) {
+                enemy.TakeDamage(0, DamageType.JumpOn);
+                rb.linearVelocityY = 0;
+                rb.AddForceY(jumpForce, ForceMode2D.Impulse);
+            }
+        }
     }
 }

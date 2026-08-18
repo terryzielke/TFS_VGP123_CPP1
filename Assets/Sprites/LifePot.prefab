@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1451222116631887846}
   - component: {fileID: 6880506581099821486}
   m_Layer: 0
-  m_Name: PowerUp
+  m_Name: LifePot
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

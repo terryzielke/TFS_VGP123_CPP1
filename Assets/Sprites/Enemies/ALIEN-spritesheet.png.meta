@@ -1,0 +1,643 @@
+fileFormatVersion: 2
+guid: 9387b32b771d1d6458f22f1a53de25a9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1739366380276195574
+    second: ALIEN-spritesheet_0
+  - first:
+      213: 6651059584399423371
+    second: ALIEN-spritesheet_1
+  - first:
+      213: 6328049133850776056
+    second: ALIEN-spritesheet_2
+  - first:
+      213: 5592502538762106069
+    second: ALIEN-spritesheet_3
+  - first:
+      213: 1195131189346290660
+    second: ALIEN-spritesheet_4
+  - first:
+      213: 8224550285561542165
+    second: ALIEN-spritesheet_5
+  - first:
+      213: 2142502439022573706
+    second: ALIEN-spritesheet_6
+  - first:
+      213: 4432091195004008240
+    second: ALIEN-spritesheet_7
+  - first:
+      213: 4043302534471448047
+    second: ALIEN-spritesheet_8
+  - first:
+      213: -2218254605359329290
+    second: ALIEN-spritesheet_9
+  - first:
+      213: -6978352785400375622
+    second: ALIEN-spritesheet_10
+  - first:
+      213: 2976813546084584852
+    second: ALIEN-spritesheet_11
+  - first:
+      213: -8424657062284426292
+    second: ALIEN-spritesheet_12
+  - first:
+      213: 5507585246349933885
+    second: ALIEN-spritesheet_13
+  - first:
+      213: -7314673920529842676
+    second: ALIEN-spritesheet_14
+  - first:
+      213: 1365632626835134195
+    second: ALIEN-spritesheet_15
+  - first:
+      213: 2209834927297574865
+    second: ALIEN-spritesheet_16
+  - first:
+      213: -5204862312175717697
+    second: ALIEN-spritesheet_17
+  - first:
+      213: -4886308076088223893
+    second: ALIEN-spritesheet_18
+  - first:
+      213: -5699833141075248965
+    second: ALIEN-spritesheet_19
+  - first:
+      213: -6510556208139798015
+    second: ALIEN-spritesheet_20
+  - first:
+      213: -4931902048140790935
+    second: ALIEN-spritesheet_21
+  - first:
+      213: 4795994594985991334
+    second: ALIEN-spritesheet_22
+  - first:
+      213: -5698119383169691284
+    second: ALIEN-spritesheet_23
+  - first:
+      213: -8658620103039902052
+    second: ALIEN-spritesheet_24
+  - first:
+      213: 5562433635691146620
+    second: ALIEN-spritesheet_25
+  - first:
+      213: -1618169663689394403
+    second: ALIEN-spritesheet_26
+  - first:
+      213: -8682133511256032634
+    second: ALIEN-spritesheet_27
+  - first:
+      213: -7384269366137783637
+    second: ALIEN-spritesheet_28
+  - first:
+      213: -8998867095320375068
+    second: ALIEN-spritesheet_29
+  - first:
+      213: 7632358549279488098
+    second: ALIEN-spritesheet_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ALIEN-spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 80
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f0ae9ed188732810800000000000000
+      internalID: 1739366380276195574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALIEN-spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 80
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b87b514047f4d4c50800000000000000
+      internalID: 6651059584399423371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALIEN-spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 81
+        width: 44
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f1d468e82fb1d750800000000000000
+      internalID: 6328049133850776056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALIEN-spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 81
+        width: 44
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d4b26cbd6f8c9d40800000000000000
+      internalID: 5592502538762106069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALIEN-spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 81
+        width: 48
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ebc9f01c75f59010800000000000000
+      internalID: 1195131189346290660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALIEN-spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 80
+        width: 46
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 516bb30c8e8732270800000000000000
+      internalID: 8224550285561542165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALIEN-spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 80
+        width: 45
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a883958ed92bbbd10800000000000000
+      internalID: 2142502439022573706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALIEN-spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 80
+        width: 45
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 037b95aa573f18d30800000000000000
+      internalID: 4432091195004008240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALIEN-spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 80
+        width: 44
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe57b969b32bc1830800000000000000
+      internalID: 4043302534471448047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALIEN-spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 9
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ffce22703d2731e0800000000000000
+      internalID: -2218254605359329290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALIEN-spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 11
+        width: 44
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab65ad45d19e72f90800000000000000
+      internalID: -6978352785400375622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALIEN-spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 9
+        width: 40
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49d41f8f524cf4920800000000000000
+      internalID: 2976813546084584852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALIEN-spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 9
+        width: 44
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc30d00a90b951b80800000000000000
+      internalID: -8424657062284426292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALIEN-spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 5
+        width: 47
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3dbed2e99fde6c40800000000000000
+      internalID: 5507585246349933885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALIEN-spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 7
+        width: 43
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0e3107f2de0d7a90800000000000000
+      internalID: -7314673920529842676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALIEN-spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 15
+        width: 36
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10afc938f9bd5a5a0800000000000000
+      internalID: -6510556208139798015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ALIEN-spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 9
+        width: 46
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6117666c963ce0b0800000000000000
+      internalID: -5698119383169691284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: d672c7b9a05d12141887a2c6c85c4250
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      ALIEN-spritesheet_0: 1739366380276195574
+      ALIEN-spritesheet_1: 6651059584399423371
+      ALIEN-spritesheet_10: -6978352785400375622
+      ALIEN-spritesheet_11: 2976813546084584852
+      ALIEN-spritesheet_12: -8424657062284426292
+      ALIEN-spritesheet_13: 5507585246349933885
+      ALIEN-spritesheet_14: -7314673920529842676
+      ALIEN-spritesheet_15: 1365632626835134195
+      ALIEN-spritesheet_16: 2209834927297574865
+      ALIEN-spritesheet_17: -5204862312175717697
+      ALIEN-spritesheet_18: -4886308076088223893
+      ALIEN-spritesheet_19: -5699833141075248965
+      ALIEN-spritesheet_2: 6328049133850776056
+      ALIEN-spritesheet_20: -6510556208139798015
+      ALIEN-spritesheet_21: -4931902048140790935
+      ALIEN-spritesheet_22: 4795994594985991334
+      ALIEN-spritesheet_23: -5698119383169691284
+      ALIEN-spritesheet_24: -8658620103039902052
+      ALIEN-spritesheet_25: 5562433635691146620
+      ALIEN-spritesheet_26: -1618169663689394403
+      ALIEN-spritesheet_27: -8682133511256032634
+      ALIEN-spritesheet_28: -7384269366137783637
+      ALIEN-spritesheet_29: -8998867095320375068
+      ALIEN-spritesheet_3: 5592502538762106069
+      ALIEN-spritesheet_30: 7632358549279488098
+      ALIEN-spritesheet_4: 1195131189346290660
+      ALIEN-spritesheet_5: 8224550285561542165
+      ALIEN-spritesheet_6: 2142502439022573706
+      ALIEN-spritesheet_7: 4432091195004008240
+      ALIEN-spritesheet_8: 4043302534471448047
+      ALIEN-spritesheet_9: -2218254605359329290
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

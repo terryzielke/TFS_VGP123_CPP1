@@ -4,6 +4,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
 
+    private int damage = 1;
+
     [SerializeField] private float lifetime = 10f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
