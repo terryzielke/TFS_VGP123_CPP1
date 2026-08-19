@@ -50,7 +50,6 @@ public class WalkerEnemy : BaseEnemy
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log($"WalkerEnemy: Collided with {collision.gameObject.name} tagged as {collision.tag}");
         if (collision.CompareTag("Barrier"))
         {
             //anim.SetTrigger("Turn");

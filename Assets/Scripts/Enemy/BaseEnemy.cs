@@ -6,9 +6,7 @@ public abstract class BaseEnemy : MonoBehaviour
 {
 
     // Private: variables that are only accessible within this class
-
     // Public: variables that are accessible from other classes
-
     // Protected: variables that are accessible within this class and derived classes
 
     protected SpriteRenderer sr;
@@ -35,7 +33,6 @@ public abstract class BaseEnemy : MonoBehaviour
     public virtual void TakeDamage(int damage, DamageType damageType = DamageType.Default)
     {
         health -= damage;
-        Debug.Log($"BaseEnemy: Took {damage} damage. Current health: {health}/{maxHealth}");
         if (health <= 0)
         {
             anim.SetTrigger("Death");

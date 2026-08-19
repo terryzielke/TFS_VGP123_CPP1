@@ -8,6 +8,10 @@ TagManager:
   - PlayerProjectile
   - Squish
   - EnemyProjectile
+  - Pickup
+  - Edge
+  - Health
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GroundCheck1
+public class GroundCheck
 {
 
     // Ground check variables
@@ -19,13 +19,13 @@ public class GroundCheck1
         return new Vector2(bounds.center.x, bounds.min.y);
     }
 
-    // Constructor to initialize the GroundCheck1 class with the necessary components and parameters
-    public GroundCheck1(Collider2D col, Rigidbody2D rb, LayerMask groundLayer, float groundCheckRadius)
+    // Constructor to initialize the GroundCheck class with the necessary components and parameters
+    public GroundCheck(Collider2D col, Rigidbody2D rb, LayerMask groundLayer, float radius)
     {
         this.col = col;
         this.rb = rb;
         this.groundLayer = groundLayer;
-        groundCheckRadius = groundCheckRadius;
+        groundCheckRadius = radius;
     }
 
     // Update is called once per frame

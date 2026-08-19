@@ -10,7 +10,8 @@ public class Shoot : MonoBehaviour
     [SerializeField] private Transform spawnPointRight;
     [SerializeField] private Projectile projectilePrefab;
 
-    public Action onShotFired;
+    private Vector2 leftShotVelocity;
+    public Action<Vector2> onShotFired;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,6 +28,8 @@ public class Shoot : MonoBehaviour
         {
             Debug.LogError("Shoot: One or more required references are not assigned. Please ensure spawnPointLeft, spawnPointRight, and projectilePrefab are assigned in the inspector.");
         }
+
+        leftShotVelocity = new Vector2(-initShotVolocity.x, initShotVolocity.y);
     }
 
     // Update is called once per frame
@@ -45,18 +48,13 @@ public class Shoot : MonoBehaviour
         {
             curProjectile = Instantiate(projectilePrefab, spawnPointRight.position, Quaternion.identity);
             curProjectile.SetVolocity(initShotVolocity);
+            onShotFired?.Invoke(initShotVolocity);
         }
         else
         {
             curProjectile = Instantiate(projectilePrefab, spawnPointLeft.position, Quaternion.identity);
-            curProjectile.SetVolocity(new Vector2(-initShotVolocity.x, initShotVolocity.y));
+            curProjectile.SetVolocity(leftShotVelocity);
+            onShotFired?.Invoke(leftShotVelocity);
         }
-        /*
-        if(onShotFired != null)
-        {
-            onShotFired.Invoke();
-        }
-        */
-        onShotFired?.Invoke();
     }
 }

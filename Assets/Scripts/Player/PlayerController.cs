@@ -14,54 +14,32 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private float speed = 5f;
 
+    [SerializeField] private int maxJumps = 1;
     [SerializeField] private float jumpForce = 10f;
+    /*
     [SerializeField] private float jumpForcePowerup = 20f;
     [SerializeField] private float jumpForcePowerupDuration = 5f; 
-    [SerializeField] private int maxJumps = 1;
+    */
     #endregion
-
+    /*
     private float currentPowerupDuration = 0f;
     private float initalJumpForce;
-
     private Coroutine jumpForceCoroutine;
-
+    */
     #region Component References
     // private and public - public variables are visible in the inspector, private variables are not. Variables are private by default unless otherwise specified.
     private Rigidbody2D rb;
     private Collider2D col;
     private SpriteRenderer sr;
     private Animator anim;
-    private GroundCheck1 check;
+    private GroundCheck check;
     #endregion
 
     private int jumpCount = 0;
     public int maxLives = 3;
     private int currentLives;
 
-    // C++ style getter and setter for lives
-    /*
-    public void setLives(int value)
-    {
-        if(value >= maxLives)
-        {
-            currentLives = maxLives;
-        }
-        else if(value <= 0)
-        {
-            currentLives = 0;
-            // game over logic here
-        }
-        else
-        {
-            currentLives = value;
-        }
-    }
-
-    // Get lives function
-    public int getLives() { return currentLives; }
-    */
-
-    // C# style property for lives
+    // Lives property to manage the player's lives with validation
     private int _lives = 3;
     public int Lives
     {
@@ -94,8 +72,8 @@ public class PlayerController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
 
-        // Initialize the GroundCheck1 instance with the required parameters
-        check = new GroundCheck1(col, rb, groundLayer, groundCheckRadius);
+        // Initialize the GroundCheck instance with the required parameters
+        check = new GroundCheck(col, rb, groundLayer, groundCheckRadius);
 
         rb.linearVelocity = Vector2.zero;
 
@@ -175,6 +153,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     
+    /*
     public void StartJumpForceChange()
     {
         if (jumpForceCoroutine != null)
@@ -201,6 +180,7 @@ public class PlayerController : MonoBehaviour
         jumpForceCoroutine = null;
         currentPowerupDuration = 0f;
     }
+    */
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
