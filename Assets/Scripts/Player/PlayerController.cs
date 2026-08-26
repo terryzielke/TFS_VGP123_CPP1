@@ -36,33 +36,8 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     private int jumpCount = 0;
-    public int maxLives = 3;
-    private int currentLives;
 
-    // Lives property to manage the player's lives with validation
-    private int _lives = 3;
-    public int Lives
-    {
-        get { return _lives; }
-        set
-        {
-            if (value >= maxLives)
-            {
-                _lives = maxLives;
-            }
-            else if (value <= 0)
-            {
-                _lives = 0;
-                Debug.Log("Game Over!");
-            }
-            else
-            {
-                _lives = value;
-            }
-
-            Debug.Log($"Lives set to: {_lives}");
-        }
-    }
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
