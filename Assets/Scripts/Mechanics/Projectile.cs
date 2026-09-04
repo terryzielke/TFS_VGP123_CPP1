@@ -3,13 +3,23 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float lifetime = 10f;
+    [SerializeField] private float lifetime = 2f;
     [SerializeField] private int damage = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Destroy(gameObject, lifetime);
+        //Destroy(gameObject, lifetime);
+    }
+    private float age;
+    void Update()
+    {
+        if (GameManager.Instance != null && GameManager.Instance.isPaused) return;
+
+        // Time.deltaTime is 0 when timeScale is 0, so this also naturally freezes —
+        // but the explicit guard above makes the intent obvious to a reader.
+        age += Time.deltaTime;
+        if (age >= lifetime) Destroy(gameObject);
     }
 
     public void SetVolocity(Vector2 velocity)
@@ -20,21 +30,31 @@ public class Projectile : MonoBehaviour
     // collision detection for the projectile
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log($"Projectile: Collided with {collision.gameObject.name} tagged as {collision.gameObject.tag}");
-        
-        if(collision.gameObject.name == "Edge" || collision.gameObject.name == "Box" || collision.gameObject.name == "Floor")
+        // collision.gameObject is the thing we hit. Grab it once for readability.
+        GameObject other = collision.gameObject;
+
+        // CompareTag is the idiomatic Unity check: faster than `other.tag == "..."`
+        // (no string allocation) and it throws if the tag doesn't exist, which
+        // catches typos. Now ANY object tagged "Obstacle" stops the projectile.
+        if (other.CompareTag("Obstacle"))
         {
-            //Debug.Log("Projectile hit the ground.");
-            Destroy(gameObject); // Destroy the projectile after hitting the ground
+            Destroy(gameObject);
+            return;
         }
 
-        if(collision.gameObject.CompareTag("Enemy") && transform.gameObject.CompareTag("PlayerProjectile"))
+        if (other.CompareTag("Enemy") && CompareTag("PlayerProjectile"))
         {
-            BaseEnemy enemy = collision.gameObject.GetComponent<BaseEnemy>();
-            if(enemy != null) {
+            BaseEnemy enemy = other.GetComponent<BaseEnemy>();
+            if (enemy != null)
+            {
                 enemy.TakeDamage(damage);
-                Destroy(gameObject); // Destroy the projectile after hitting an enemy
+                Destroy(gameObject);
             }
+        }
+
+        if (collision.gameObject.CompareTag("Player") && CompareTag("EnemyProjectile"))
+        {
+
         }
     }
 

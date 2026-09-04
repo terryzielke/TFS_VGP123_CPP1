@@ -25,11 +25,11 @@ public class WalkerEnemy : BaseEnemy
 
         if(damageType == DamageType.JumpOn)
         {
-            anim.SetTrigger("Squish");
-            Destroy(transform.parent.gameObject, 0.5f);
+            //anim.SetTrigger("Squish");
+            //Destroy(transform.parent.gameObject, 0.5f);
         }
 
-        base.TakeDamage(damage, damageType);
+        base.TakeDamage(1, damageType);
     }
 
     // Update is called once per frame

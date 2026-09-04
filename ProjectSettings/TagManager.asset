@@ -12,6 +12,7 @@ TagManager:
   - Edge
   - Health
   - Enemy
+  - Obstacle
   layers:
   - Default
   - TransparentFX

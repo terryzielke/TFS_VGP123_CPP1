@@ -16,10 +16,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private int maxJumps = 1;
     [SerializeField] private float jumpForce = 10f;
-    /*
-    [SerializeField] private float jumpForcePowerup = 20f;
-    [SerializeField] private float jumpForcePowerupDuration = 5f; 
-    */
+    [Range(0f, 1f)]
+    [SerializeField] private float jumpCutMultiplier = 0.5f;
+    [SerializeField] private float fallGravityMultiplier = 2f;   // gravity while falling
+    [SerializeField] private float lowJumpGravityMultiplier = 2f; // gravity while rising but NOT holding Jump
     #endregion
     /*
     private float currentPowerupDuration = 0f;
@@ -57,28 +57,21 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Pause check
+        if (GameManager.Instance != null && GameManager.Instance.isPaused) return;
+
         AnimatorClipInfo[] clipInfo = anim.GetCurrentAnimatorClipInfo(0);
         bool isGroundedThisFrame = check.CheckGround();
 
         float horizontalInput = Input.GetAxis("Horizontal");
-        bool isCrouching = false;
         bool fireInput = Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.RightShift);
 
         // movement along x axis
         float moveX = horizontalInput * speed;
         rb.linearVelocityX = moveX;
 
-        
-        // Crouch input
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-        {
-            rb.linearVelocityX = 0f;
-            isCrouching = true;
-        }
-        
-
-        // Jump input
-        if (Input.GetButtonDown("Jump"))
+        // Jump pressed this frame
+        if (Input.GetButtonDown("Jump") )
         {
             if(jumpCount < maxJumps)
             {
@@ -88,24 +81,36 @@ public class PlayerController : MonoBehaviour
                 Debug.Log($"Jumped! Jump count: {jumpCount}");
             }
         }
+        // Jump released this frame
+        if (Input.GetButtonUp("Jump") && rb.linearVelocityY > 0f)
+        {
+            rb.linearVelocityY *= jumpCutMultiplier;
+        }
 
+        if (rb.linearVelocityY < 0f)
+        {
+            // Falling: pile on extra gravity so the descent isn't floaty.
+            // Time.deltaTime keeps it frame-rate independent (bigger step -> bigger nudge).
+            rb.linearVelocityY += Physics2D.gravity.y * (fallGravityMultiplier - 1f) * Time.deltaTime;
+        }
+        else if (rb.linearVelocityY > 0f && !Input.GetButton("Jump"))
+        {
+            // Rising but the player let go: fall off faster than a held jump.
+            // This overlaps with the jump-cut above; pick one or tune them together.
+            rb.linearVelocityY += Physics2D.gravity.y * (lowJumpGravityMultiplier - 1f) * Time.deltaTime;
+        }
+
+        // Reset jump count when grounded and falling or stationary
         if (isGroundedThisFrame && rb.linearVelocity.y <= 0)
         {
             jumpCount = 0;
         }
 
-        /*
-        if (clipInfo[0].clip.name == "Attack")
-        {
-            rb.linearVelocityX = 0;
-        }
-        */
-
         SpriteFlip(horizontalInput);
 
         // Update animator parameters
         anim.SetBool("isGrounded", isGroundedThisFrame);
-        anim.SetBool("isCrouching", isCrouching);
+        anim.SetBool("isFalling", rb.linearVelocityY < 0f);
         anim.SetFloat("horizontalInput", Mathf.Abs(horizontalInput));
 
         // Attack input
@@ -127,7 +132,7 @@ public class PlayerController : MonoBehaviour
             sr.flipX = !sr.flipX;
         }
     }
-    
+
     /*
     public void StartJumpForceChange()
     {
@@ -157,6 +162,7 @@ public class PlayerController : MonoBehaviour
     }
     */
 
+    // Player damages enemy when colliding with the "Squish" collider and the player is falling
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if( (collision.CompareTag("Squish") && rb.linearVelocityY < 0))
@@ -167,6 +173,15 @@ public class PlayerController : MonoBehaviour
                 rb.linearVelocityY = 0;
                 rb.AddForceY(jumpForce, ForceMode2D.Impulse);
             }
+        }
+    }
+
+    // Player takes damage when colliding with an enemy
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            GameManager.Instance.Lives--;
         }
     }
 }

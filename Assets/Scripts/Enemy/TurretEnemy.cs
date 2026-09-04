@@ -6,6 +6,7 @@ using UnityEngine;
 public class TurretEnemy : BaseEnemy
 {
     [SerializeField] private float fireRate = 1f;
+    [SerializeField] private float detectionRange = 3f; // The range within which the turret will detect the player
     private float timeSinceLastShot = 0f;
 
     private float fireDistance = 10f; // The distance within which the turret will fire at the player
@@ -44,6 +45,11 @@ public class TurretEnemy : BaseEnemy
                 if (distanceToPlayer < fireDistance)
                 {
                     anim.SetTrigger("Fire");
+                    sr.color = Color.red;
+                }
+                else
+                {
+                    sr.color = Color.white;
                 }
             }
         }
@@ -51,12 +57,12 @@ public class TurretEnemy : BaseEnemy
         // If player X position is greater than turret X position, flip the sprite to face right, else face left
         if (player != null)
         {
-            Vector2 direction = player.transform.position - transform.position;
-            if (direction.x > 0)
+            float direction = player.transform.position.x - transform.position.x;
+            if (direction > 0)
             {
                 sr.flipX = false;
             }
-            else if (direction.x < 0)
+            else if (direction < 0)
             {
                 sr.flipX = true;
             }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[DefaultExecutionOrder(-100)]
 public class GameManager : MonoBehaviour
 {
     #region Singleton Pattern
@@ -19,11 +20,27 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #region Pause/Resume
+    public bool isPaused = false;
+    public static void PauseGame()
+    {
+        instance.isPaused = true;
+        Time.timeScale = 0f;
+    }
+
+    public static void ResumeGame()
+    {
+        instance.isPaused = false;
+        Time.timeScale = 1f;
+    }
+    #endregion
+
     #region Lives
     [Range(0, 9)]
     public int startingLives = 3;
     public int maxLives = 9;
     private int _lives = 3;
+    public System.Action<int> OnLivesChanged;
     //C# style getters and setters - properties - they do the same thing as the above C++ style getters and setters, but they are more concise and easier to read - they are also more flexible, as they can have logic in them, and can be read-only or write-only
     public int Lives
     {
@@ -32,9 +49,9 @@ public class GameManager : MonoBehaviour
         {
             if (value > maxLives)
             {
-                maxLives = value;
+                _lives = maxLives;
             }
-            else if (value < 0)
+            else if (value <= 0)
             {
                 _lives = 0;
                 GameOver();
@@ -49,6 +66,7 @@ public class GameManager : MonoBehaviour
                 _lives = value;
             }
 
+            OnLivesChanged?.Invoke(_lives);
             Debug.Log("Lives: " + _lives.ToString() + " Max Lives: " + maxLives.ToString());
 
         }
@@ -73,13 +91,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            string currentSceneName = SceneManager.GetActiveScene().name;
-            string sceneToLoad = currentSceneName == "1.Title" ? "2.Game" : "1.Title";
-
-            SceneManager.LoadScene(sceneToLoad);
-        }
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name == "3.GameOver") SceneManager.LoadScene("1.Title");
 
         if (Input.GetKeyDown(KeyCode.J))
         {
@@ -112,7 +124,7 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         Debug.Log("Game Over");
-        SceneManager.LoadScene("1.Title");
+        SceneManager.LoadScene("3.GameOver");
     }
 
     private void Respawn()

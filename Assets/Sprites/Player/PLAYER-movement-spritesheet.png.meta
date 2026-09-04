@@ -44,6 +44,15 @@ TextureImporter:
   - first:
       213: 7010737787719924407
     second: PLAYER-movement-spritesheet_13
+  - first:
+      213: -5473827582387264165
+    second: PLAYER-movement-spritesheet_14
+  - first:
+      213: 1061667413138878946
+    second: PLAYER-movement-spritesheet_15
+  - first:
+      213: 1831363310808472997
+    second: PLAYER-movement-spritesheet_16
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -410,12 +419,12 @@ TextureImporter:
       name: PLAYER-movement-spritesheet_11
       rect:
         serializedVersion: 2
-        x: 19
-        y: 4
-        width: 24
-        height: 56
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 469
+        y: 89
+        width: 28
+        height: 14
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -432,7 +441,7 @@ TextureImporter:
       name: PLAYER-movement-spritesheet_12
       rect:
         serializedVersion: 2
-        x: 84
+        x: 19
         y: 4
         width: 24
         height: 56
@@ -454,7 +463,7 @@ TextureImporter:
       name: PLAYER-movement-spritesheet_13
       rect:
         serializedVersion: 2
-        x: 150
+        x: 84
         y: 4
         width: 24
         height: 56
@@ -472,11 +481,77 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: PLAYER-movement-spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 4
+        width: 24
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b55621eb0de0904b0800000000000000
+      internalID: -5473827582387264165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAYER-movement-spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 9
+        width: 24
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e130c523eccbbe00800000000000000
+      internalID: 1061667413138878946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLAYER-movement-spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 9
+        width: 24
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ad1c6b6a3f4a6910800000000000000
+      internalID: 1831363310808472997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 56bb66e07f2b45b4b83549ea96695faa
+    spriteID: 4c4137ebd4dff1f4c8a0e739919b2173
     internalID: 0
     vertices: []
     indices: 
@@ -494,6 +569,9 @@ TextureImporter:
       PLAYER-movement-spritesheet_11: -7425731576220785534
       PLAYER-movement-spritesheet_12: -1428574953063579469
       PLAYER-movement-spritesheet_13: 7010737787719924407
+      PLAYER-movement-spritesheet_14: -5473827582387264165
+      PLAYER-movement-spritesheet_15: 1061667413138878946
+      PLAYER-movement-spritesheet_16: 1831363310808472997
       PLAYER-movement-spritesheet_2: -3409296089199413986
       PLAYER-movement-spritesheet_3: 8665749458957343396
       PLAYER-movement-spritesheet_4: 5153397311962746130
