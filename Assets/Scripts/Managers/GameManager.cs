@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name == "3.GameOver") SceneManager.LoadScene("1.Title");
 
         if (Input.GetKeyDown(KeyCode.J))
@@ -131,5 +132,6 @@ public class GameManager : MonoBehaviour
     {
         //this could play an animation and reload the level or do something more elaborate if you needed it to.
         playerInstance.transform.position = currentCheckpoint;
+        PlaybackRequest.Instance.RequestOneShotSound(PlaybackRequest.Instance.deathSound, gameObject, PlaybackRequest.Instance.sfxMixerGroup);
     }
 }

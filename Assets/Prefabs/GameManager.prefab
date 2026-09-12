@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7188158832901560053}
   - component: {fileID: 3705151065506499664}
+  - component: {fileID: 3286538489556908372}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,6 +45,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50fb7d2315050b24b9f99fdd2e43e31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  isPaused: 0
   startingLives: 3
-  maxLives: 3
+  maxLives: 9
   playerPrefab: {fileID: 1205377057887337419, guid: 4dc044966f0f8fb42bd90b7608b46d79, type: 3}
+--- !u!114 &3286538489556908372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6594684227848366973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0875fca0e56ce534d9cc30888f1243eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlaybackRequest
+  jumpSound: {fileID: 8300000, guid: e1809e81a58819549b4567c4d8e86c80, type: 3}
+  fireSound: {fileID: 8300000, guid: 527012ae7f73c3e49a0eaaa09fcc08e9, type: 3}
+  oneUpSound: {fileID: 0}
+  pauseSound: {fileID: 0}
+  powerUpSound: {fileID: 0}
+  popSound: {fileID: 8300000, guid: da0b363feb46f7946a4c03615de93ab6, type: 3}
+  deathSound: {fileID: 8300000, guid: b73256194f255d942a006986ed35be0b, type: 3}
+  masterMixerGroup: {fileID: 0}
+  musicMixerGroup: {fileID: 0}
+  sfxMixerGroup: {fileID: 0}

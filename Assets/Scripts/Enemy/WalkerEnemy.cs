@@ -30,6 +30,8 @@ public class WalkerEnemy : BaseEnemy
         }
 
         base.TakeDamage(1, damageType);
+
+        PlaybackRequest.Instance.RequestOneShotSound(PlaybackRequest.Instance.popSound, gameObject, PlaybackRequest.Instance.sfxMixerGroup);
     }
 
     // Update is called once per frame

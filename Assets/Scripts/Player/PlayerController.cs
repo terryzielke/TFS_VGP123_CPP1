@@ -1,6 +1,7 @@
+using System.Collections;
 using System.Runtime.CompilerServices;
 using UnityEngine;
-using System.Collections;
+using static Unity.Burst.Intrinsics.X86;
 
 // <summary>
 // Responsible for taking the imput and applying it ot the rigidbody component of the player object
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sr;
     private Animator anim;
     private GroundCheck check;
+    private Shoot shoot;
     #endregion
 
     private int jumpCount = 0;
@@ -46,11 +48,14 @@ public class PlayerController : MonoBehaviour
         col = GetComponent<Collider2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        shoot = GetComponent<Shoot>();
 
         // Initialize the GroundCheck instance with the required parameters
         check = new GroundCheck(col, rb, groundLayer, groundCheckRadius);
 
         rb.linearVelocity = Vector2.zero;
+
+        shoot.onShotFired += (velocity) => PlaybackRequest.Instance.RequestOneShotSound(PlaybackRequest.Instance.fireSound, gameObject, PlaybackRequest.Instance.sfxMixerGroup);
 
     }
 
@@ -79,6 +84,7 @@ public class PlayerController : MonoBehaviour
                 rb.linearVelocityY = 0f;
                 rb.AddForceY(jumpForce, ForceMode2D.Impulse);
                 Debug.Log($"Jumped! Jump count: {jumpCount}");
+                PlaybackRequest.Instance.RequestOneShotSound(PlaybackRequest.Instance.jumpSound, gameObject, PlaybackRequest.Instance.sfxMixerGroup);
             }
         }
         // Jump released this frame

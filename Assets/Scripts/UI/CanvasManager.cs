@@ -37,7 +37,7 @@ public class CanvasManager : MonoBehaviour
             resumeButton.onClick.AddListener(TogglePause);
 
         if (returnToMenuButton)
-            returnToMenuButton.onClick.AddListener(() => ChangeScene("1.Title"));
+            returnToMenuButton.onClick.AddListener(() => { GameManager.ResumeGame(); ChangeScene("1.Title"); });
 
         if (backButton)
             backButton.onClick.AddListener(() => SetMenu(mainMenu, settingsMenu));
