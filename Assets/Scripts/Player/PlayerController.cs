@@ -185,7 +185,7 @@ public class PlayerController : MonoBehaviour
     // Player takes damage when colliding with an enemy
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyProjectile"))
         {
             GameManager.Instance.Lives--;
         }

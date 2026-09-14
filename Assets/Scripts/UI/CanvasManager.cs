@@ -15,6 +15,7 @@ public class CanvasManager : MonoBehaviour
 
     [Header("In Game UI")]
     [SerializeField] private TMP_Text livesText;
+    [SerializeField] private TMP_Text pointsText;
 
     [Header("Menu Referendces")]
     [SerializeField] private GameObject mainMenu;
@@ -46,6 +47,12 @@ public class CanvasManager : MonoBehaviour
         {
             GameManager.Instance.OnLivesChanged += (lives) => livesText.text = "Lives: " + lives.ToString();
             livesText.text = "Lives: " + GameManager.Instance.Lives.ToString();
+        }
+
+        if (pointsText)
+        {
+            GameManager.Instance.OnPointsChanged += (points) => pointsText.text = "Points: " + points.ToString();
+            pointsText.text = "Points: " + GameManager.Instance.Points.ToString();
         }
     }
 

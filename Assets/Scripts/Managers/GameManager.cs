@@ -34,6 +34,22 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
     }
     #endregion
+    
+    #region Points
+    private int points = 0;
+    public System.Action<int> OnPointsChanged;
+
+    public int Points
+    {
+        get => points;
+        set
+        {
+            points = value;
+            OnPointsChanged?.Invoke(points);
+            Debug.Log("Points: " + points.ToString());
+        }
+    }
+    #endregion
 
     #region Lives
     [Range(0, 9)]

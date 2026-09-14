@@ -55,6 +55,7 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && CompareTag("EnemyProjectile"))
         {
 
+            Destroy(gameObject);
         }
     }
 

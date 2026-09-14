@@ -16,7 +16,7 @@ public class WalkerEnemy : BaseEnemy
         rb.sleepMode = RigidbodySleepMode2D.NeverSleep;
 
     }
-
+    /*
     public override void TakeDamage(int damage, DamageType damageType = DamageType.Default)
     {
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
@@ -30,9 +30,7 @@ public class WalkerEnemy : BaseEnemy
         }
 
         base.TakeDamage(1, damageType);
-
-        PlaybackRequest.Instance.RequestOneShotSound(PlaybackRequest.Instance.popSound, gameObject, PlaybackRequest.Instance.sfxMixerGroup);
-    }
+    }*/
 
     // Update is called once per frame
     void Update()

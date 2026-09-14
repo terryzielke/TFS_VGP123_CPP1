@@ -32,13 +32,26 @@ public abstract class BaseEnemy : MonoBehaviour
 
     public virtual void TakeDamage(int damage, DamageType damageType = DamageType.Default)
     {
+        // Already dying - ignore further hits so a projectile and a squish landing
+        // in the same frame can't both trigger separate death/destroy calls.
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Death")) return;
+
+        // Play the pop sound effect when the enemy dies
+        PlaybackRequest.Instance.RequestOneShotSound(PlaybackRequest.Instance.popSound, gameObject, PlaybackRequest.Instance.sfxMixerGroup);
+
+        // Jumping on an enemy is always a one-hit kill, regardless of how much
+        // damage the caller passed in - PlayerController calls this with 0.
+        if (damageType == DamageType.JumpOn) damage = 1;
+
         health -= damage;
         if (health <= 0)
         {
             anim.SetTrigger("Death");
-            // Destroying the game object after a delay to allow death animation to play
+            // Add point to the player when the enemy dies
+            GameManager.Instance.Points += 10;
 
-            if(transform.parent != null)
+            // Destroying the game object after a delay to allow death animation to play
+            if (transform.parent != null)
             {
                 Destroy(transform.parent.gameObject, 0.5f);
             }

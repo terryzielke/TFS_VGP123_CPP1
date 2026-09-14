@@ -6,18 +6,16 @@ using UnityEngine;
 public class TurretEnemy : BaseEnemy
 {
     [SerializeField] private float fireRate = 1f;
-    [SerializeField] private float detectionRange = 3f; // The range within which the turret will detect the player
+    [SerializeField] private float detectionRange = 6f; // The range within which the turret will detect the player
     private float timeSinceLastShot = 0f;
 
-    private float fireDistance = 10f; // The distance within which the turret will fire at the player
-
-    Shoot shoot;
+    TurretShoot turretShoot;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
     {
         base.Start();
 
-        shoot = GetComponent<Shoot>();
+        turretShoot = GetComponent<TurretShoot>();
 
         // Ensure fireRate is not zero or negative to avoid division by zero or unexpected behavior
         if (fireRate <= 0f)
@@ -25,7 +23,7 @@ public class TurretEnemy : BaseEnemy
             fireRate = 1f;
             Debug.LogWarning("TurretEnemy: Fire rate was set to zero or negative. Defaulting to 1 second.");
         }
-        shoot.onShotFired += (velocity) => timeSinceLastShot = 0f;
+        turretShoot.onShotFired += (velocity) => timeSinceLastShot = 0f;
     }
 
     // Update is called once per frame
@@ -42,10 +40,10 @@ public class TurretEnemy : BaseEnemy
             timeSinceLastShot += Time.deltaTime;
             if(timeSinceLastShot >= fireRate)
             {
-                if (distanceToPlayer < fireDistance)
+                if (distanceToPlayer < detectionRange)
                 {
                     anim.SetTrigger("Fire");
-                    sr.color = Color.red;
+                    //sr.color = Color.red;
                 }
                 else
                 {
