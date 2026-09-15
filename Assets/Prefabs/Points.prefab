@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6880506581099821486}
   - component: {fileID: -2127276877852916912}
   m_Layer: 0
-  m_Name: PowerUp
+  m_Name: Points
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,12 +83,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1379837206128178414, guid: bde4575799d9f5f48a8e4e8b4a35a430, type: 3}
+  m_Sprite: {fileID: 7093157654213207296, guid: 651047803457903418d511f6f72ab2a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.25, y: 0.25}
+  m_Size: {x: 0.59375, y: 0.578125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -131,9 +131,9 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.125}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.5, y: 0.5}
-    newSize: {x: 0.25, y: 0.25}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.59375, y: 0.578125}
+    newSize: {x: 0.59375, y: 0.578125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

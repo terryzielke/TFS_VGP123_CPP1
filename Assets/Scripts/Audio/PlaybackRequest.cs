@@ -23,7 +23,7 @@ public class PlaybackRequest : MonoBehaviour
     [Header("Player Sounds")]
     public AudioClip jumpSound;
     public AudioClip fireSound;
-    public AudioClip oneUpSound;
+    public AudioClip pointSound;
     public AudioClip pauseSound;
     public AudioClip powerUpSound;
     public AudioClip popSound;

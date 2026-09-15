@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name == "3.GameOver") SceneManager.LoadScene("1.Title");
+        if (Input.GetKeyDown(KeyCode.Escape) && (SceneManager.GetActiveScene().name == "3.GameOver" || SceneManager.GetActiveScene().name == "4.Credits")) SceneManager.LoadScene("1.Title");
 
         if (Input.GetKeyDown(KeyCode.J))
         {
@@ -142,6 +142,12 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Over");
         SceneManager.LoadScene("3.GameOver");
+    }
+
+    public void LevelComplete()
+    {
+        Debug.Log("Level Complete");
+        SceneManager.LoadScene("4.Credits");
     }
 
     private void Respawn()

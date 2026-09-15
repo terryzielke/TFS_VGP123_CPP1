@@ -180,6 +180,12 @@ public class PlayerController : MonoBehaviour
                 rb.AddForceY(jumpForce, ForceMode2D.Impulse);
             }
         }
+
+        // Player reaches the end of the level
+        if (collision.CompareTag("Finish"))
+        {
+            GameManager.Instance.LevelComplete();
+        }
     }
 
     // Player takes damage when colliding with an enemy

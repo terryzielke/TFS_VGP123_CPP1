@@ -63,7 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlaybackRequest
   jumpSound: {fileID: 8300000, guid: e1809e81a58819549b4567c4d8e86c80, type: 3}
   fireSound: {fileID: 8300000, guid: 527012ae7f73c3e49a0eaaa09fcc08e9, type: 3}
-  oneUpSound: {fileID: 0}
+  pointSound: {fileID: 8300000, guid: 8669548c04995754a9371b0218f928c1, type: 3}
   pauseSound: {fileID: 0}
   powerUpSound: {fileID: 0}
   popSound: {fileID: 8300000, guid: da0b363feb46f7946a4c03615de93ab6, type: 3}

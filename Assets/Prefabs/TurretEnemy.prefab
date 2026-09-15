@@ -463,7 +463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TurretEnemy
   maxHealth: 1
   fireRate: 1
-  detectionRange: 6
+  detectionRange: 12
 --- !u!114 &7394590724632953715
 MonoBehaviour:
   m_ObjectHideFlags: 0

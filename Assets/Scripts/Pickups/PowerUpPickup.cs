@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PowerUpPickup : BasePickup
+public class PointPickup : BasePickup
 {
     public override void OnPickup(GameObject player)
     {
@@ -8,8 +8,13 @@ public class PowerUpPickup : BasePickup
         if (playerController != null)
         {
             // Activate a power-up for the player
-            Debug.Log("Player picked up power-up!");
+            Debug.Log("Player picked up points!");
             // Implement power-up activation logic here
+            PlaybackRequest.Instance.RequestOneShotSound(PlaybackRequest.Instance.pointSound);
+
+            // Add points to the player's score
+            GameManager.Instance.Points += 10;
+
         }
     }
 }
